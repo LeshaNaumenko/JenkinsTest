@@ -18,7 +18,7 @@ pipeline {
          steps {
             echo 'Hello World'
             sh label: '', script: 'ls -la'
-            
+            sh("python3 python.py")
          }
       }
    }
