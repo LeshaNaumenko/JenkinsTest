@@ -16,9 +16,11 @@ pipeline {
    stages {
       stage('Hello') {
          steps {
+             sleep time: 5, unit: 'NANOSECONDS'
             echo 'Hello World'
             sh label: '', script: 'ls -la'
             sh("python3 python.py")
+             sleep time: 5, unit: 'NANOSECONDS'
             git 'https://github.com/alexxxnaumenko/TestForJenkins.git'
          }
       }
