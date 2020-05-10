@@ -19,6 +19,7 @@ pipeline {
             echo 'Hello World'
             sh label: '', script: 'ls -la'
             sh("python3 python.py")
+            git 'https://github.com/alexxxnaumenko/TestForJenkins.git'
          }
       }
    }
