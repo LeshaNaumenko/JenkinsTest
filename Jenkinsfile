@@ -18,7 +18,8 @@ pipeline {
          steps {
             git 'https://github.com/alexxxnaumenko/TestForJenkins.git'
             sh("ls -l")
-            sh("find /var/lib/jenkins/workspace/testSCM -maxdepth 1 -type d  -regex '/var/lib/jenkins/workspace/testSCM/ROW-[0-9]+' | sort | sed -n 2p")
+            def value = sh("find . -maxdepth 1 -type d  -regex './ROW-[0-9]+' | sort -r | sed -n 3p | cut -d'/' -f 2")
+             pring("value = "+value) 
          }
       }
    }
