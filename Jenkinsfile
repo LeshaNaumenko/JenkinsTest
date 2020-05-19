@@ -18,8 +18,8 @@ pipeline {
          steps {
             git 'https://github.com/alexxxnaumenko/TestForJenkins.git'
             sh("ls -l")
-            def value = sh(returnStdout: true, script: "find . -maxdepth 1 -type d  -regex './ROW-[0-9]+' | sort -r | sed -n 3p | cut -d'/' -f 2")
-             print("value = ${value}")
+             myvalue = sh(returnStdout: true, script: "find . -maxdepth 1 -type d  -regex './ROW-[0-9]+' | sort -r | sed -n 3p | cut -d'/' -f 2")
+             print("myvalue = ${myvalue}")
          }
       }
    }
