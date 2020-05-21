@@ -16,10 +16,13 @@ pipeline {
    stages {
       stage('Hello') {
          steps {
-            git 'https://github.com/alexxxnaumenko/TestForJenkins.git'
-            sh("ls -l")
-             myvalue = sh(returnStdout: true, script: "find . -maxdepth 1 -type d  -regex './ROW-[0-9]+' | sort -r | sed -n 3p | cut -d'/' -f 2")
-             print("myvalue = ${myvalue}")
+             script {
+                  git 'https://github.com/alexxxnaumenko/TestForJenkins.git'
+                 new File('.').eachDirRecurse { dir ->
+                    println dir.name
+                 }
+             }
+           
          }
       }
    }
