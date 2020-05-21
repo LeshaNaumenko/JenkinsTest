@@ -1,3 +1,4 @@
+import groovy.io.FileType
 properties  ([
     parameters  ([
             string(defaultValue: '', description: '''The number of the W manif
@@ -18,9 +19,12 @@ pipeline {
          steps {
              script {
                   git 'https://github.com/alexxxnaumenko/TestForJenkins.git'
-                 new File('.').eachDirRecurse { dir ->
-                    println dir.name
-                 }
+                 def list = []
+
+                def dir = new File("path_to_parent_dir")
+                dir.eachFileRecurse (FileType.FILES) { file ->
+                    list << file
+                }
              }
            
          }
