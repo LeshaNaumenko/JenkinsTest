@@ -21,7 +21,7 @@ pipeline {
                   git 'https://github.com/alexxxnaumenko/TestForJenkins.git'
                  def list = []
 
-                def dir = new File("path_to_parent_dir")
+                def dir = new File(".")
                 dir.eachFileRecurse (FileType.FILES) { file ->
                     list << file
                 }
